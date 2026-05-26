@@ -194,101 +194,118 @@ export const actividadesLudicasContent = {
     "Estos talleres itinerantes promueven instancias de encuentro ciudadanas donde poner en juego la creatividad. Crean ámbitos en los que la educación ambiental sobre residuos, reutilización y reciclaje es posible a través del juego y la participación activa.",
   catalogo: [
     {
+      slug: "torres-de-desafio-vertical",
       title: "Torres de Desafío Vertical",
       image: "/images/actividades/torres-desafio.jpg",
       description:
         "Mobiliario lúdico que combina ensamble, reutilización de materiales y juego colaborativo. Los participantes arman caminos verticales por donde cae una bolita metálica por gravedad.",
     },
     {
+      slug: "cajas-de-musica",
       title: "Cajas de Música",
       image: "/images/actividades/acercarte.jpg",
       description:
         "Instrumentos de gran tamaño realizados con caños de PVC, botellas de plástico infladas o alambres tensados.",
     },
     {
+      slug: "espacio-de-juegos",
       title: "Espacio de Juegos",
       image: "/images/actividades/acercarte.jpg",
       description:
         "Ambiente integrado de mobiliario lúdico y juegos de ingenio. Combinación de juego y educación ambiental.",
     },
     {
+      slug: "taller-de-espirografo",
       title: "Taller de Espirógrafo",
       image: "/images/actividades/espirografo.jpg",
       description:
         "Diseños colaborativos con engranajes y color en papeles reutilizados.",
     },
     {
+      slug: "orquesta-de-automatas",
       title: "Orquesta de Autómatas",
       image: "/images/actividades/acercarte.jpg",
       description:
         "Máquinas creadas con partes reutilizadas para un concierto colectivo.",
     },
     {
+      slug: "taller-de-titeres",
       title: "Taller de Títeres",
       image: "/images/actividades/acercarte.jpg",
       description:
         "Reutilización de percha, telas, trapos, tuercas, hilo y tapones para títeres y marionetas.",
     },
     {
+      slug: "taller-de-grabado",
       title: "Taller de Grabado",
       image: "/images/ayni-lab/no-toxico.jpg",
       description:
         "Matrices de impresión con tetrabricks, radiografías y otros materiales reutilizados.",
     },
     {
+      slug: "motores-a-goma",
       title: "Motores a Goma",
       image: "/images/actividades/acercarte.jpg",
       description:
         "Juguetes a motor con sorbetes, clips, remaches y palitos de helado.",
     },
     {
+      slug: "taller-de-soldadura",
       title: "Taller de Soldadura",
       image: "/images/actividades/acercarte-tejedor.jpg",
       description:
         "Reutilización de chatarra (tuercas, tornillos, clavos, chapas) para crear esculturas colaborativas. Apto desde 6 años.",
     },
     {
+      slug: "fotografia-al-paso",
       title: "Fotografía al Paso",
       image: "/images/actividades/vuelta-verde.jpg",
       description:
         "Laboratorio móvil de fotografía estenopeica. Cámaras hechas con sachets de leche, fotogramas con objetos cotidianos.",
     },
     {
+      slug: "accesorios-textiles",
       title: "Accesorios Textiles",
       image: "/images/actividades/acercarte-rojas.jpg",
       description:
         "Prendas personales con telas recuperadas del desecho textil. Técnicas de anudado, trenzado y plegado.",
     },
     {
+      slug: "taller-de-plastico",
       title: "Taller de Plástico",
       image: "/images/actividades/acercarte.jpg",
       description:
         "Juguetes con envases plásticos reutilizados.",
     },
     {
+      slug: "tacho-a-la-vista",
       title: "Tacho a la Vista",
       image: "/images/actividades/vuelta-verde.jpg",
       description:
         "Juegos con latas, plástico, cartón, corcho, madera, tela y papel.",
     },
     {
+      slug: "taller-textil",
       title: "Taller Textil",
       image: "/images/actividades/acercarte.jpg",
       description: "Morrales y carteras con telas en desuso.",
     },
     {
+      slug: "fabrica-de-papel",
       title: "Fábrica de Papel",
       image: "/images/actividades/acercarte-rojas.jpg",
       description:
         "Reciclaje de papel con pulpa y semillas. Papel plantable.",
     },
     {
+      slug: "espacio-escenico",
       title: "Espacio Escénico",
       image: "/images/actividades/acercarte.jpg",
       description:
         "Teatro de apropiación del espacio público con objetos reutilizados.",
     },
     {
+      slug: "taller-ilusiones-opticas",
       title: "Taller de Ilusiones Ópticas / Rotoscopio",
       image: "/images/actividades/espirografo.jpg",
       description:
@@ -297,6 +314,7 @@ export const actividadesLudicasContent = {
   ],
   proyectos: [
     {
+      slug: "talleres-reutilizacion-creativa-acercarte",
       title: "Talleres de Reutilización Creativa en AcercArte",
       image: "/images/actividades/acercarte.jpg",
       description:
@@ -343,6 +361,7 @@ export const actividadesLudicasContent = {
       },
     },
     {
+      slug: "espacio-experimentacion-fernandez-blanco",
       title:
         "Espacio de Experimentación Lúdico y Creativo — Museo Fernández Blanco",
       image: "/images/actividades/espirografo.jpg",
@@ -358,6 +377,7 @@ export const actividadesLudicasContent = {
       ],
     },
     {
+      slug: "torres-desafio-vertical-proyecto",
       title: "Torres de Desafío Vertical",
       image: "/images/actividades/torres-desafio.jpg",
       description:
@@ -366,6 +386,7 @@ export const actividadesLudicasContent = {
         "Los participantes eligen las combinaciones posibles de los elementos para armar un camino en el que circula una bola metálica movilizada por la fuerza de gravedad. El clásico 'juego de armar' renovado por sus dimensiones, que invita a interacción corporal y colaboración colectiva. Este mobiliario lúdico se desarrolló en AyniLab.",
     },
     {
+      slug: "reutilizacion-creativa-estado-barrio",
       title: "Reutilización Creativa en El Estado en tu Barrio",
       image: "/images/actividades/estado-barrio.jpg",
       description:
@@ -374,6 +395,7 @@ export const actividadesLudicasContent = {
         "Cultura en proyectos puso a disposición una zona de descanso y esparcimiento compuesta por la Torre de Desafío Vertical y el Espirógrafo, dos juegos colaborativos que promueven la búsqueda de soluciones conjuntas, la diversión y el asombro.",
     },
     {
+      slug: "reutilizacion-creativa-vuelta-verde",
       title: "Reutilización Creativa en la Feria Vuelta Verde",
       image: "/images/actividades/vuelta-verde.jpg",
       description:
@@ -382,6 +404,7 @@ export const actividadesLudicasContent = {
         "Las sucesivas ediciones de Vuelta Verde fomentaron la vitalidad de los espacios públicos, promoviendo la educación ambiental sobre residuos, reutilización y reciclaje a través del juego y la participación activa. Vuelta Verde fue impulsada por el Ministerio de Ambiente y Espacio Público de la Ciudad de Buenos Aires.",
     },
     {
+      slug: "espacio-juegos-villa-ventana",
       title: "Espacio de Juegos en Villa Ventana y Sierra de la Ventana",
       image: "/images/actividades/acercarte.jpg",
       description:
@@ -399,6 +422,7 @@ export const formacionProfesionalContent = {
   subtitle: "Capacitación y desarrollo para el sector cultural",
   programas: [
     {
+      slug: "i-jornadas-creativas",
       title: "I Jornadas Creativas Córdoba – Buenos Aires",
       image: "/images/formacion/jornadas-1.jpg",
       description:
@@ -407,6 +431,7 @@ export const formacionProfesionalContent = {
         "Se llevaron a cabo en el Área de Gestión Cultural FCE UNC (Córdoba) y en el Espacio Fundación Telefónica (Buenos Aires). Se desarrolló el seminario 'Gestión de Emprendimientos Creativos y Organizaciones Culturales' y la Expo Emprendimientos Creativos.",
     },
     {
+      slug: "ii-jornadas-creativas",
       title: "II Jornadas Creativas Córdoba – Buenos Aires",
       image: "/images/formacion/jornadas-2.jpg",
       description:
@@ -435,18 +460,21 @@ export const formacionProfesionalContent = {
       ],
     },
     {
+      slug: "aynincuba-incubadora",
       title: "AynIncuba",
       image: "/images/aynincuba/logo.png",
       description:
         "Incubadora de proyectos culturales y creativos que ofrece instancias de networking, formación, mentorías y niveles específicos de incubación para emprendedores del sector.",
     },
     {
+      slug: "premica-formacion",
       title: "PreMICA",
       image: "/images/formacion/emprendedores.jpg",
       description:
         "Programa de formación y profesionalización para emprendedores participantes del MICA (Mercado de Industrias Culturales Argentinas). AynIncuba, a través de sus especialistas, ofrece capacitación, profesionalización y tutoría.",
     },
     {
+      slug: "espacio-aceleracion-creativos",
       title: "Espacio de Aceleración de Emprendimientos Creativos",
       image: "/images/formacion/espacio-aceleracion.jpg",
       description:
@@ -467,60 +495,70 @@ export const proyectosContent = {
       titulo: "Proyectos Artísticos",
       proyectos: [
         {
+          slug: "ideas-que-traman",
           title: "Ideas que traman",
           image: "/images/proyectos/ideas-que-traman.jpg",
           description:
             "Proyecto de participación juvenil con el Patrimonio Cultural Inmaterial (PCI) en el Espacio Memoria y DDHH, que involucra talleres y creación colectiva de objetos. Se realizaron capacitaciones, talleres de arte callejero, grabado no tóxico y fotografía estenopeica, culminando en una muestra colectiva.",
         },
         {
+          slug: "me-lo-llevo-a-la-tumba",
           title: "Me lo llevo a la tumba",
           image: "/images/proyectos/no-toxico-exp.jpg",
           description:
             "Podcast que explora la temática del secreto desde distintas aristas. Disponible en Spotify, Apple Podcast y Google Podcast. Proyecto de CON, equipo de investigación, experimentación y exploración cultural, con apoyo de Mecenazgo.",
         },
         {
+          slug: "barda-del-desierto",
           title: "Barda del Desierto (5ª y 6ª edición)",
           image: "/images/proyectos/barda-desierto.jpg",
           description:
             "Plataforma de residencias independiente con base en Contralmirante Cordero (Chubut), enfocada en arte, educación y artes visuales vinculadas al contexto. Artistas de distintas partes del mundo crean obras vinculadas a la historia y geografía local.",
         },
         {
+          slug: "no-toxico-expo",
           title: "#NOTÓXICO",
           image: "/images/proyectos/no-toxico-exp.jpg",
           description:
             "Exposición fotográfica de fotograbados en la FotoGalería de la Facultad de Ciencias Económicas de la UNC, Córdoba, que explora la memoria y las técnicas de grabado no tóxico.",
         },
         {
+          slug: "neruda",
           title: "Neruda",
           image: "/images/proyectos/neruda.jpg",
           description:
             "Proyecto de postproducción (doblajes y efectos visuales) para la película dirigida por Pablo Larraín. La película narra el año en que Pablo Neruda vivió como fugitivo en Chile. Estrenada en Buenos Aires el 9 de febrero de 2016.",
         },
         {
+          slug: "neural-tango",
           title: "NEURAL Tango",
           image: "/images/proyectos/neural.jpg",
           description:
             "Proyecto de murales colaborativos en el Distrito de las Artes (La Boca, Buenos Aires), enfocado en la mejora del paisaje urbano y la identidad. Participaron artistas como Georgina Ciotti, Ice, Cabaio, Tekaz, eMePeCe, Pol Corona, Fio Silva y Stencil Land.",
         },
         {
+          slug: "distrito-audiovisual-tecnologico",
           title: "Distrito Audiovisual y Tecnológico",
           image: "/images/proyectos/distrito-audiovisual.jpg",
           description:
             "Iniciativa de desarrollo cultural y productivo en el barrio de La Boca y Parque Patricios, promoviendo la concentración de empresas audiovisuales y tecnológicas, con murales temáticos realizados por artistas urbanos.",
         },
         {
+          slug: "consultorio-de-proyectos",
           title: "Consultorio de Proyectos",
           image: "/images/formacion/consultorio.jpg",
           description:
             "Cultura en proyectos, en convenio con el Ministerio de Gestión Cultural de la Provincia de Buenos Aires, ofrece tutorías para emprendedores y gestores culturales. En sus dos ediciones ha contado con la participación de hasta 50 emprendimientos.",
         },
         {
+          slug: "ciudad-de-barrios",
           title: "Ciudad de Barrios",
           image: "/images/proyectos/ciudad-barrios.jpg",
           description:
             "Plataforma de Transferencia creada entre la Cátedra Arquitectura 2D, Red de Vecinos de San Vicente y Fundación Cultura en proyectos. Un grupo promotor de difusión de las cualidades de una Ciudad de Barrios.",
         },
         {
+          slug: "catedra-taller-a77",
           title: "Cátedra Taller A77 — FADU UBA",
           image: "/images/proyectos/catedra-a77.jpg",
           description:
@@ -532,24 +570,28 @@ export const proyectosContent = {
       titulo: "Proyectos de Formación",
       proyectos: [
         {
+          slug: "aynincuba-proyecto",
           title: "AynIncuba",
           image: "/images/aynincuba/logo.png",
           description:
             "Incubadora de proyectos culturales y creativos con instancias de networking, formación y mentorías.",
         },
         {
+          slug: "premica-proyecto",
           title: "PreMICA",
           image: "/images/formacion/emprendedores.jpg",
           description:
             "Programa de formación y profesionalización para emprendedores del mercado cultural.",
         },
         {
+          slug: "espacio-aceleracion-proyecto",
           title: "Espacio de Aceleración de Emprendimientos Creativos",
           image: "/images/formacion/espacio-aceleracion.jpg",
           description:
             "Programa intensivo de 14 semanas para potenciar emprendimientos creativos.",
         },
         {
+          slug: "jornadas-creativas-proyecto",
           title: "Jornadas Creativas",
           image: "/images/formacion/jornadas-1.jpg",
           description:
@@ -561,18 +603,21 @@ export const proyectosContent = {
       titulo: "Libros Inclusivos Infantiles",
       proyectos: [
         {
+          slug: "macatobiando",
           title: "Macatobiando",
           image: "/images/proyectos/macatobiando-slide.jpg",
           description:
             "Libro infantil inclusivo que combina divulgación científica con diseño universal (impresión en tinta y braille, relieves). A través de Tobi, conocemos la vida de los Macá Tobianos en las profundas lagunas de la Patagonia Austral. Incluye talleres de formación docente y narraciones sonoras.",
         },
         {
+          slug: "pun-y-la-musica",
           title: "Pun y la música de la Tierra",
           image: "/images/proyectos/pun-musica.png",
           description:
             "Libro infantil que explora la relación entre la música y la naturaleza, con formato inclusivo que incluye braille y relieve en sus ilustraciones. Incluye el sitio web www.monitopun.com.ar como complemento. Proyecto pedagógico integral con talleres de formación docente.",
         },
         {
+          slug: "mangu-abejorro-patagonico",
           title: "Mangú, un abejorro patagónico",
           image: "/images/proyectos/mangu.jpg",
           description:

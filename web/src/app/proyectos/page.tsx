@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import { proyectosContent } from "@/lib/data";
 
@@ -53,9 +54,10 @@ export default function ProyectosPage() {
               </h2>
             </ScrollReveal>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 stagger-children">
-              {categoria.proyectos.map((proyecto, idx) => (
-                <div
-                  key={idx}
+              {categoria.proyectos.map((proyecto) => (
+                <Link
+                  key={proyecto.slug}
+                  href={`/proyectos/${proyecto.slug}`}
                   className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#d8f3dc]"
                 >
                   {"image" in proyecto && proyecto.image && (
@@ -75,7 +77,7 @@ export default function ProyectosPage() {
                       {proyecto.description}
                     </p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
