@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import VideoEmbed from "@/components/VideoEmbed";
 import { formacionProfesionalContent } from "@/lib/data";
 
 export async function generateStaticParams() {
@@ -104,6 +105,11 @@ export default async function ProgramaPage({
                 </div>
               </div>
             </ScrollReveal>
+
+            {/* Video embeds */}
+            {"videos" in programa && (programa as any).videos && (
+              <VideoEmbed videos={(programa as any).videos} title="Video del programa" />
+            )}
 
             <ScrollReveal>
               <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm sm:p-10">

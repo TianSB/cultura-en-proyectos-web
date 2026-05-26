@@ -10,6 +10,7 @@ export const siteConfig = {
     facebook: "https://facebook.com/pages/Ayni-Lab/1566164470335594",
     twitter: "https://twitter.com/AyniLab",
     instagram: "https://instagram.com/aynilab/",
+    youtube: "https://www.youtube.com/user/culturaenproyectos",
   },
 };
 
@@ -106,6 +107,7 @@ export const ayniLabContent = {
         "En el marco del proyecto Ideas que traman, AyniLab produjo el taller de Grabado, a cargo de la grabadora Graciela Buratti. La propuesta, dirigida a estudiantes de cuarto año del secundario de la Escuela de Artes Visuales Rogelio Yrurtia, se centró en la técnica del colagraph y la punta seca, empleando materiales y químicos no tóxicos.",
       details:
         "La actividad se realizó en el Espacio Memoria y Derechos Humanos [Ex-ESMA] en mayo de 2017.",
+      videos: ["https://www.youtube.com/embed/yL80OAt6ixk"],
     },
     {
       slug: "arte-callejero",
@@ -241,6 +243,7 @@ export const actividadesLudicasContent = {
       image: "/images/ayni-lab/no-toxico.jpg",
       description:
         "Matrices de impresión con tetrabricks, radiografías y otros materiales reutilizados.",
+      videos: ["https://www.youtube.com/embed/yL80OAt6ixk"],
     },
     {
       slug: "motores-a-goma",
@@ -402,6 +405,11 @@ export const actividadesLudicasContent = {
         "La Feria Vuelta Verde se realizó en diferentes parques de la ciudad desde mayo de 2014 hasta noviembre de 2015. A través de diferentes actividades, este encuentro de reutilización creativa permitió experimentar con técnicas como fotografía estenopeica, fabricación de papel y diversos talleres de reutilización.",
       details:
         "Las sucesivas ediciones de Vuelta Verde fomentaron la vitalidad de los espacios públicos, promoviendo la educación ambiental sobre residuos, reutilización y reciclaje a través del juego y la participación activa. Vuelta Verde fue impulsada por el Ministerio de Ambiente y Espacio Público de la Ciudad de Buenos Aires.",
+      videos: [
+        "https://player.vimeo.com/video/98362200",
+        "https://player.vimeo.com/video/101739686",
+        "https://www.youtube.com/embed/x7W2WqS64f8",
+      ],
     },
     {
       slug: "espacio-juegos-villa-ventana",
@@ -436,6 +444,7 @@ export const formacionProfesionalContent = {
       image: "/images/formacion/jornadas-2.jpg",
       description:
         "La segunda edición se desarrolló los días 10, 11 y 12 de octubre en Córdoba y Buenos Aires, con los seminarios 'Innovación estratégica y comunicación en organizaciones culturales/creativas' y 'Ciudades y experiencias creativas para una economía creativa', a cargo de Roberto Gómez de la Iglesia y Miren Martín Morato (c2+i).",
+      videos: ["https://player.vimeo.com/video/96648456"],
       ejes: [
         {
           name: "Economía Creativa",
@@ -502,11 +511,11 @@ export const proyectosContent = {
             "Proyecto de participación juvenil con el Patrimonio Cultural Inmaterial (PCI) en el Espacio Memoria y DDHH, que involucra talleres y creación colectiva de objetos. Se realizaron capacitaciones, talleres de arte callejero, grabado no tóxico y fotografía estenopeica, culminando en una muestra colectiva.",
         },
         {
-          slug: "me-lo-llevo-a-la-tumba",
-          title: "Me lo llevo a la tumba",
-          image: "/images/proyectos/no-toxico-exp.jpg",
-          description:
-            "Podcast que explora la temática del secreto desde distintas aristas. Disponible en Spotify, Apple Podcast y Google Podcast. Proyecto de CON, equipo de investigación, experimentación y exploración cultural, con apoyo de Mecenazgo.",
+      slug: "me-lo-llevo-a-la-tumba",
+      title: "Me lo llevo a la tumba",
+      image: "/images/proyectos/no-toxico-exp.jpg",
+      description:
+        "Podcast que explora la temática del secreto desde distintas aristas. Disponible en Spotify, Apple Podcast y Google Podcast. Proyecto de CON, equipo de investigación, experimentación y exploración cultural, con apoyo de Mecenazgo." ,
         },
         {
           slug: "barda-del-desierto",
@@ -622,6 +631,7 @@ export const proyectosContent = {
           image: "/images/proyectos/mangu.jpg",
           description:
             "Libro infantil sobre la biodiversidad patagónica, con diseño accesible que incluye braille y relieves para una experiencia de lectura inclusiva. Texto de Ale Beron, ilustraciones de Sabina Schürmann.",
+          videos: ["https://www.youtube.com/embed/7U8kUalMcho"],
         },
       ],
     },

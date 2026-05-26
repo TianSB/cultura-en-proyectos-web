@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import VideoEmbed from "@/components/VideoEmbed";
 import { proyectosContent } from "@/lib/data";
 
 export async function generateStaticParams() {
@@ -119,6 +120,11 @@ export default async function ProyectoPage({
                 </div>
               </div>
             </ScrollReveal>
+
+            {/* Video embeds */}
+            {"videos" in proyecto && (proyecto as any).videos && (
+              <VideoEmbed videos={(proyecto as any).videos} title="Video del proyecto" />
+            )}
 
             <ScrollReveal>
               <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm sm:p-10">
