@@ -3,12 +3,21 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { heroSlides } from "@/lib/data";
 
 export default function Home() {
+  const hero = heroSlides[0];
   return (
     <>
       {/* ═══ HERO ═══ */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#081c15] via-[#1b4332] to-[#2d6a4f]">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${hero.image})` }}
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#081c15]/90 via-[#1b4332]/85 to-[#2d6a4f]/80" />
+
         {/* Animated gradient overlay */}
-        <div className="absolute inset-0 animate-gradient opacity-60"
+        <div className="absolute inset-0 animate-gradient opacity-40"
           style={{
             background: "linear-gradient(135deg, #081c15 0%, #1b4332 25%, #2d6a4f 50%, #52b788 75%, #2d6a4f 100%)",
             backgroundSize: "400% 400%",
@@ -79,20 +88,17 @@ export default function Home() {
             <Link
               key={slide.title}
               href={slide.href}
-              className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 shadow-lg shadow-gray-200/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-300/50"
+              className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg shadow-gray-200/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-300/50"
             >
-              {/* Hover gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#d8f3dc]/0 to-[#d8f3dc]/0 transition-all duration-300 group-hover:from-[#d8f3dc]/30 group-hover:to-[#d8f3dc]/10" />
-              <div className="relative">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#d8f3dc] text-[#2d6a4f] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#2d6a4f] group-hover:text-white">
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    {slide.title === "Ayni Lab" ? (
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-                    ) : (
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    )}
-                  </svg>
-                </div>
+              {/* Card background image */}
+              <div className="relative h-40 overflow-hidden">
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${slide.image})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+              <div className="relative p-6">
                 <h3 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#2d6a4f]">
                   {slide.title}
                 </h3>
@@ -186,10 +192,10 @@ export default function Home() {
                 </h3>
                 <ul className="relative mt-6 space-y-4">
                   {[
-                    { icon: "🔬", text: "Laboratorio: experimentación, desarrollo y producción" },
-                    { icon: "🛠️", text: "Talleres: profesionalización y experimentación" },
-                    { icon: "🎪", text: "Muestras y encuentros: compartir con la comunidad" },
-                    { icon: "🏠", text: "Residencias: producir con herramientas del lab" },
+                    { icon: "\uD83D\uDD2C", text: "Laboratorio: experimentación, desarrollo y producción" },
+                    { icon: "\uD83D\uDEE0\uFE0F", text: "Talleres: profesionalización y experimentación" },
+                    { icon: "\uD83C\uDFAA", text: "Muestras y encuentros: compartir con la comunidad" },
+                    { icon: "\uD83C\uDFE0", text: "Residencias: producir con herramientas del lab" },
                   ].map((item) => (
                     <li key={item.text} className="flex items-start gap-3 text-sm text-[#1b4332]">
                       <span className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg bg-white/60 text-xs backdrop-blur-sm">

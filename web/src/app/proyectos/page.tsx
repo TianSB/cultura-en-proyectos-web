@@ -56,14 +56,25 @@ export default function ProyectosPage() {
               {categoria.proyectos.map((proyecto, idx) => (
                 <div
                   key={idx}
-                  className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#d8f3dc]"
+                  className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#d8f3dc]"
                 >
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#2d6a4f] transition-colors">
-                    {proyecto.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-500">
-                    {proyecto.description}
-                  </p>
+                  {"image" in proyecto && proyecto.image && (
+                    <div className="relative h-40 overflow-hidden">
+                      <div
+                        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                        style={{ backgroundImage: `url(${proyecto.image})` }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#2d6a4f] transition-colors">
+                      {proyecto.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                      {proyecto.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>

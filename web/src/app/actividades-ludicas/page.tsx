@@ -53,10 +53,19 @@ export default function ActividadesLudicasPage() {
             {actividadesLudicasContent.catalogo.map((taller) => (
               <div
                 key={taller.title}
-                className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#d8f3dc]"
+                className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#d8f3dc]"
               >
-                <h3 className="font-bold text-[#2d6a4f] transition-colors group-hover:text-[#1b4332]">{taller.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-500">{taller.description}</p>
+                <div className="relative h-36 overflow-hidden">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    style={{ backgroundImage: `url(${taller.image})` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold text-[#2d6a4f] transition-colors group-hover:text-[#1b4332]">{taller.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-500">{taller.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -77,32 +86,43 @@ export default function ActividadesLudicasPage() {
         <div className="mt-10 space-y-10">
           {actividadesLudicasContent.proyectos.slice(0, 3).map((proyecto, idx) => (
             <ScrollReveal key={idx} delay={idx * 100}>
-              <div className="group rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#2d6a4f] transition-colors">{proyecto.title}</h3>
-                <p className="mt-3 leading-relaxed text-gray-700">{proyecto.description}</p>
-                <p className="mt-2 leading-relaxed text-gray-500">{proyecto.details}</p>
-
-                {"juegos" in proyecto && proyecto.juegos && (
-                  <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                    {proyecto.juegos.map((juego) => (
-                      <div key={juego} className="flex items-start gap-2 rounded-lg bg-[#f5f5f5] p-3 text-sm text-gray-600">
-                        <span className="mt-0.5 text-[#2d6a4f]">✦</span>
-                        {juego}
-                      </div>
-                    ))}
+              <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                {"image" in proyecto && proyecto.image && (
+                  <div className="relative h-48 overflow-hidden">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                      style={{ backgroundImage: `url(${proyecto.image})` }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   </div>
                 )}
+                <div className="p-8">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#2d6a4f] transition-colors">{proyecto.title}</h3>
+                  <p className="mt-3 leading-relaxed text-gray-700">{proyecto.description}</p>
+                  <p className="mt-2 leading-relaxed text-gray-500">{proyecto.details}</p>
 
-                {"years" in proyecto && proyecto.years && (
-                  <div className="mt-6 space-y-3">
-                    {Object.entries(proyecto.years).map(([year, municipios]) => (
-                      <div key={year}>
-                        <span className="inline-block rounded-full bg-[#d8f3dc] px-3 py-0.5 text-xs font-semibold text-[#2d6a4f]">{year}</span>
-                        <p className="mt-1.5 text-sm leading-relaxed text-gray-600">{municipios.join(" | ")}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                  {"juegos" in proyecto && proyecto.juegos && (
+                    <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                      {proyecto.juegos.map((juego) => (
+                        <div key={juego} className="flex items-start gap-2 rounded-lg bg-[#f5f5f5] p-3 text-sm text-gray-600">
+                          <span className="mt-0.5 text-[#2d6a4f]">✦</span>
+                          {juego}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {"years" in proyecto && proyecto.years && (
+                    <div className="mt-6 space-y-3">
+                      {Object.entries(proyecto.years).map(([year, municipios]) => (
+                        <div key={year}>
+                          <span className="inline-block rounded-full bg-[#d8f3dc] px-3 py-0.5 text-xs font-semibold text-[#2d6a4f]">{year}</span>
+                          <p className="mt-1.5 text-sm leading-relaxed text-gray-600">{municipios.join(" | ")}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </ScrollReveal>
           ))}
@@ -126,13 +146,24 @@ export default function ActividadesLudicasPage() {
             {actividadesLudicasContent.proyectos.slice(3).map((proyecto, idx) => (
               <div
                 key={idx}
-                className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#2d6a4f] transition-colors">
-                  {proyecto.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-500">{proyecto.description}</p>
-                <p className="mt-2 text-sm leading-relaxed text-gray-400">{proyecto.details}</p>
+                {"image" in proyecto && proyecto.image && (
+                  <div className="relative h-36 overflow-hidden">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                      style={{ backgroundImage: `url(${proyecto.image})` }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  </div>
+                )}
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#2d6a4f] transition-colors">
+                    {proyecto.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-500">{proyecto.description}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-400">{proyecto.details}</p>
+                </div>
               </div>
             ))}
           </div>

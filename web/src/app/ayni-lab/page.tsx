@@ -90,14 +90,21 @@ export default function AyniLabPage() {
             <Link
               key={taller.slug}
               href={`/ayni-lab/${taller.slug}`}
-              className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
+              className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
             >
-              <div className="absolute top-0 right-0 h-24 w-24 translate-x-8 -translate-y-8 rounded-full bg-[#d8f3dc] opacity-50 transition-all duration-500 group-hover:scale-150" />
-              <div className="relative">
-                <span className="inline-block rounded-full bg-[#d8f3dc] px-3 py-1 text-xs font-semibold text-[#1b4332]">
+              {/* Taller image */}
+              <div className="relative h-48 overflow-hidden">
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${taller.image})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <span className="absolute bottom-3 left-3 inline-block rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[#1b4332] backdrop-blur-sm">
                   {taller.category}
                 </span>
-                <h3 className="mt-3 text-lg font-bold text-gray-900 transition-colors group-hover:text-[#2d6a4f]">
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-gray-900 transition-colors group-hover:text-[#2d6a4f]">
                   {taller.title}
                 </h3>
                 <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-gray-500">
