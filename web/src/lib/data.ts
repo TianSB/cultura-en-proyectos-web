@@ -11,6 +11,7 @@ export const siteConfig = {
     twitter: "https://twitter.com/AyniLab",
     instagram: "https://instagram.com/aynilab/",
     youtube: "https://www.youtube.com/user/culturaenproyectos",
+    vimeo: "https://vimeo.com/culturaenproyectos",
   },
 };
 
