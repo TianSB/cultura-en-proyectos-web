@@ -1,12 +1,45 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { siteConfig } from "@/lib/data";
 
-export const metadata: Metadata = {
-  title: "Contacto",
-};
-
 export default function ContactoPage() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+    setErrorMsg("");
+
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Error al enviar");
+      }
+
+      setStatus("success");
+      form.reset();
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(err instanceof Error ? err.message : "Error al enviar el mensaje");
+    }
+  }
+
   return (
     <>
       {/* Hero */}
@@ -40,7 +73,7 @@ export default function ContactoPage() {
                 Por consultas, propuestas o cualquier información, completá el
                 siguiente formulario y nos pondremos en contacto a la brevedad.
               </p>
-              <form className="mt-8 space-y-5">
+              <form onSubmit={handleSubmit} className="mt-8 space-y-5">
                 <div>
                   <label
                     htmlFor="name"
@@ -55,6 +88,7 @@ export default function ContactoPage() {
                     required
                     className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 shadow-sm placeholder-gray-400 transition-all focus:border-[#2d6a4f] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]/20"
                     placeholder="Tu nombre"
+                    disabled={status === "sending"}
                   />
                 </div>
                 <div>
@@ -71,6 +105,7 @@ export default function ContactoPage() {
                     required
                     className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 shadow-sm placeholder-gray-400 transition-all focus:border-[#2d6a4f] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]/20"
                     placeholder="tu@email.com"
+                    disabled={status === "sending"}
                   />
                 </div>
                 <div>
@@ -87,17 +122,41 @@ export default function ContactoPage() {
                     required
                     className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 shadow-sm placeholder-gray-400 transition-all focus:border-[#2d6a4f] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]/20"
                     placeholder="Escribí tu mensaje..."
+                    disabled={status === "sending"}
                   />
                 </div>
+
+                {status === "success" && (
+                  <div className="rounded-xl bg-[#d8f3dc] border border-[#b7e4c7] px-4 py-3 text-sm text-[#1b4332]">
+                    ¡Mensaje enviado con éxito! Te responderemos a la brevedad.
+                  </div>
+                )}
+
+                {status === "error" && (
+                  <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+                    {errorMsg || "Error al enviar el mensaje. Intentalo de nuevo."}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-[#2d6a4f] px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#1b4332] hover:shadow-xl hover:-translate-y-0.5"
+                  disabled={status === "sending"}
+                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-[#2d6a4f] px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#1b4332] hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-[#1b4332] to-[#2d6a4f] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <span className="relative">Enviar mensaje</span>
-                  <svg className="relative h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-                  </svg>
+                  <span className="relative">
+                    {status === "sending" ? "Enviando..." : "Enviar mensaje"}
+                  </span>
+                  {status === "sending" ? (
+                    <svg className="relative h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                  ) : (
+                    <svg className="relative h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                    </svg>
+                  )}
                 </button>
               </form>
             </div>
@@ -148,6 +207,28 @@ export default function ContactoPage() {
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                       </svg>
                       Facebook
+                    </a>
+                    <a
+                      href={siteConfig.social.youtube}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[#2d6a4f] hover:text-[#2d6a4f] hover:shadow-md"
+                    >
+                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                      </svg>
+                      YouTube
+                    </a>
+                    <a
+                      href={siteConfig.social.vimeo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[#2d6a4f] hover:text-[#2d6a4f] hover:shadow-md"
+                    >
+                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.977 6.416c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L5.322 11.4C4.603 8.816 3.834 7.522 3.01 7.522c-.179 0-.806.378-1.881 1.132L0 7.197c1.185-1.044 2.351-2.084 3.501-3.128C5.08 2.701 6.266 1.984 7.055 1.91c1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.507.539 2.45 1.131 3.674 1.776 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.493 4.797l-.013.01z" />
+                      </svg>
+                      Vimeo
                     </a>
                   </div>
                 </div>

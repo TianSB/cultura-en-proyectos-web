@@ -33,6 +33,20 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Backup & extracted data
+/backup-5.27.2026_18-42-07_culturaenproyect/
+/www.culturaenproyectos.org/
+/extract_*.py
+/hola-mundo.html
+/generar-docx.js
+
+# Test files
+/public/test-*
+/public/test-images/
+
+# Generated DOCX
+/ContenidoWeb_*.docx
+
 # vercel
 .vercel
 

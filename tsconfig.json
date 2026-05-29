@@ -30,5 +30,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "www.culturaenproyectos.org", "backup-5.27.2026_18-42-07_culturaenproyect"]
 }

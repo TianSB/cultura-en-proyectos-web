@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import { proyectosContent } from "@/lib/data";
 
@@ -10,7 +12,16 @@ export default function ProyectosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#081c15] via-[#1b4332] to-[#2d6a4f] pt-32 pb-20">
+      <section className="relative overflow-hidden pt-32 pb-20">
+        <Image
+          src={proyectosContent.image}
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#081c15]/90 via-[#1b4332]/85 to-[#2d6a4f]/80" />
         <div className="absolute inset-0 dot-pattern opacity-20" />
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
@@ -46,25 +57,40 @@ export default function ProyectosPage() {
           <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
               <span className="inline-block rounded-full bg-[#d8f3dc] px-4 py-1 text-xs font-semibold uppercase tracking-widest text-[#2d6a4f]">
-                {catIdx === 0 ? "Arte" : catIdx === 1 ? "Formación" : "Inclusión"}
+                {{"Proyectos Artísticos": "Arte", "Proyectos de Formación": "Formación", "Libros Inclusivos Infantiles": "Inclusión", "Red de Proyectos Creativos": "Red"}[categoria.titulo] || "Proyecto"}
               </span>
               <h2 className="mt-3 text-2xl font-bold text-gray-900">
                 {categoria.titulo}
               </h2>
             </ScrollReveal>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 stagger-children">
-              {categoria.proyectos.map((proyecto, idx) => (
-                <div
-                  key={idx}
-                  className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#d8f3dc]"
+              {categoria.proyectos.map((proyecto) => (
+                <Link
+                  key={proyecto.slug}
+                  href={`/proyectos/${proyecto.slug}`}
+                  className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#d8f3dc]"
                 >
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#2d6a4f] transition-colors">
-                    {proyecto.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-500">
-                    {proyecto.description}
-                  </p>
-                </div>
+                  {"image" in proyecto && proyecto.image && (
+                    <div className="relative h-40 overflow-hidden">
+                      <Image
+                        src={proyecto.image}
+                        alt={proyecto.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#2d6a4f] transition-colors">
+                      {proyecto.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                      {proyecto.description}
+                    </p>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>

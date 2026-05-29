@@ -22,6 +22,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.culturaenproyectos.org"),
   title: {
     default: "Cultura en Proyectos | Desarrollo y gestión de proyectos culturales",
     template: "%s | Cultura en Proyectos",

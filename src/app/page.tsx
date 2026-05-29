@@ -1,14 +1,28 @@
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
-import { heroSlides } from "@/lib/data";
+import { heroSlides, actividadesLudicasContent } from "@/lib/data";
 
 export default function Home() {
+  const hero = heroSlides[0];
   return (
     <>
       {/* ═══ HERO ═══ */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#081c15] via-[#1b4332] to-[#2d6a4f]">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Background image */}
+        <Image
+          src={hero.image}
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#081c15]/90 via-[#1b4332]/85 to-[#2d6a4f]/80" />
+
         {/* Animated gradient overlay */}
-        <div className="absolute inset-0 animate-gradient opacity-60"
+        <div className="absolute inset-0 animate-gradient opacity-40"
           style={{
             background: "linear-gradient(135deg, #081c15 0%, #1b4332 25%, #2d6a4f 50%, #52b788 75%, #2d6a4f 100%)",
             backgroundSize: "400% 400%",
@@ -79,20 +93,20 @@ export default function Home() {
             <Link
               key={slide.title}
               href={slide.href}
-              className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 shadow-lg shadow-gray-200/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-300/50"
+              className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg shadow-gray-200/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-300/50"
             >
-              {/* Hover gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#d8f3dc]/0 to-[#d8f3dc]/0 transition-all duration-300 group-hover:from-[#d8f3dc]/30 group-hover:to-[#d8f3dc]/10" />
-              <div className="relative">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#d8f3dc] text-[#2d6a4f] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#2d6a4f] group-hover:text-white">
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    {slide.title === "Ayni Lab" ? (
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-                    ) : (
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    )}
-                  </svg>
-                </div>
+              {/* Card background image */}
+              <div className="relative h-40 overflow-hidden">
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+              <div className="relative p-6">
                 <h3 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#2d6a4f]">
                   {slide.title}
                 </h3>
@@ -144,6 +158,129 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
+      {/* ═══ PROYECTOS DESTACADOS ═══ */}
+      <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[#d8f3dc] opacity-20 blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-[#b7e4c7] opacity-20 blur-3xl" />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="text-center">
+              <span className="inline-block rounded-full bg-[#d8f3dc] px-4 py-1 text-xs font-semibold uppercase tracking-widest text-[#2d6a4f]">
+                Proyectos
+              </span>
+              <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Proyectos{" "}
+                <span className="text-gradient">destacados</span>
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-gray-500">
+                Conocé algunos de los proyectos que desarrollamos desde la
+                fundación, integrando arte, tecnología, inclusión y sustentabilidad.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 stagger-children">
+            {[
+              {
+                title: "Cátedra Taller A77",
+                subtitle: "Arquitectura y espacio público",
+                image: "/images/general/home-a77.webp",
+                href: "/proyectos/catedra-taller-a77",
+              },
+              {
+                title: "Macatobiando",
+                subtitle: "Libro infantil inclusivo",
+                image: "/images/general/home-el-libro-2.webp",
+                href: "/proyectos/macatobiando",
+              },
+              {
+                title: "Me lo llevo a la tumba",
+                subtitle: "Podcast cultural",
+                image: "/images/general/home-podcast.webp",
+                href: "/proyectos/me-lo-llevo-a-la-tumba",
+              },
+              {
+                title: "Pun y la música de la Tierra",
+                subtitle: "Libro infantil inclusivo",
+                image: "/images/general/home-pun.webp",
+                href: "/proyectos/pun-y-la-musica",
+              },
+              {
+                title: "Patrimonio Cultural Inmaterial",
+                subtitle: "Proyecto de participación juvenil",
+                image: "/images/general/home-pci.webp",
+                href: "/proyectos/ideas-que-traman",
+              },
+              {
+                title: "Red de Proyectos Creativos",
+                subtitle: "Comunidad global de gestores culturales",
+                image: "/images/general/home-proyectos.webp",
+                href: "/proyectos",
+              },
+            ].map((proyecto, idx) => (
+              <ScrollReveal key={proyecto.title} delay={idx * 75}>
+                <Link
+                  href={proyecto.href}
+                  className="group relative block overflow-hidden rounded-2xl shadow-lg shadow-gray-200/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-300/50"
+                >
+                  {/* Image */}
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={proyecto.image}
+                      alt={proyecto.title}
+                      fill
+                      className="object-cover transition-all duration-700 group-hover:scale-110"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-90" />
+                    {/* Category badge */}
+                    <span className="absolute top-4 left-4 inline-block rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                      {proyecto.title === "Red de Proyectos Creativos"
+                        ? "Comunidad"
+                        : proyecto.title === "Me lo llevo a la tumba"
+                          ? "Podcast"
+                          : proyecto.title === "Patrimonio Cultural Inmaterial"
+                            ? "Educación"
+                            : "Proyecto"}
+                    </span>
+                  </div>
+                  {/* Text content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <h3 className="text-lg font-bold text-white transition-all duration-300 group-hover:text-[#d8f3dc]">
+                      {proyecto.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-300 transition-all duration-300 group-hover:text-gray-200">
+                      {proyecto.subtitle}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#52b788] opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
+                      Ver proyecto
+                      <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal>
+            <div className="mt-12 text-center">
+              <Link
+                href="/proyectos"
+                className="group inline-flex items-center gap-2 rounded-xl bg-[#2d6a4f] px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#1b4332] hover:shadow-xl hover:-translate-y-0.5"
+              >
+                Ver todos los proyectos
+                <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* ═══ AYNI LAB PREVIEW ═══ */}
       <section className="relative overflow-hidden py-24 sm:py-32">
         <div className="absolute inset-0 dot-pattern opacity-30" />
@@ -186,10 +323,10 @@ export default function Home() {
                 </h3>
                 <ul className="relative mt-6 space-y-4">
                   {[
-                    { icon: "🔬", text: "Laboratorio: experimentación, desarrollo y producción" },
-                    { icon: "🛠️", text: "Talleres: profesionalización y experimentación" },
-                    { icon: "🎪", text: "Muestras y encuentros: compartir con la comunidad" },
-                    { icon: "🏠", text: "Residencias: producir con herramientas del lab" },
+                    { icon: "\uD83D\uDD2C", text: "Laboratorio: experimentación, desarrollo y producción" },
+                    { icon: "\uD83D\uDEE0\uFE0F", text: "Talleres: profesionalización y experimentación" },
+                    { icon: "\uD83C\uDFAA", text: "Muestras y encuentros: compartir con la comunidad" },
+                    { icon: "\uD83C\uDFE0", text: "Residencias: producir con herramientas del lab" },
                   ].map((item) => (
                     <li key={item.text} className="flex items-start gap-3 text-sm text-[#1b4332]">
                       <span className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg bg-white/60 text-xs backdrop-blur-sm">
@@ -202,6 +339,84 @@ export default function Home() {
               </div>
             </ScrollReveal>
           </div>
+        </div>
+      </section>
+
+      {/* ═══ ACTIVIDADES LÚDICAS PREVIEW ═══ */}
+      <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[#d8f3dc] opacity-30 blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-[#b7e4c7] opacity-20 blur-3xl" />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="text-center">
+              <span className="inline-block rounded-full bg-[#d8f3dc] px-4 py-1 text-xs font-semibold uppercase tracking-widest text-[#2d6a4f]">
+                Actividades Lúdicas
+              </span>
+              <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Talleres de{" "}
+                <span className="text-gradient">Reutilización Creativa</span>
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-gray-500">
+                Talleres creativos ideados para la reutilización de materiales en desuso, a través
+                del arte y la tecnología, con actividades para toda la familia.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 stagger-children">
+            {[
+              "torres-de-desafio-vertical",
+              "taller-de-espirografo",
+              "taller-de-grabado",
+              "taller-de-soldadura",
+              "fotografia-al-paso",
+              "accesorios-textiles",
+            ].map((slug, idx) => {
+              const taller = actividadesLudicasContent.catalogo.find((t) => t.slug === slug);
+              if (!taller) return null;
+              return (
+                <ScrollReveal key={taller.slug} delay={idx * 75}>
+                  <Link
+                    href={`/actividades-ludicas/${taller.slug}`}
+                    className="group block overflow-hidden rounded-xl border border-gray-100 bg-white shadow-md shadow-gray-200/50 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-gray-300/50"
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <Image
+                        src={taller.image}
+                        alt={taller.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    </div>
+                    <div className="p-5">
+                      <h3 className="font-semibold text-gray-900 transition-colors group-hover:text-[#2d6a4f]">
+                        {taller.title}
+                      </h3>
+                      <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-gray-500">
+                        {taller.description}
+                      </p>
+                    </div>
+                  </Link>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+
+          <ScrollReveal>
+            <div className="mt-12 text-center">
+              <Link
+                href="/actividades-ludicas"
+                className="group inline-flex items-center gap-2 rounded-xl bg-[#2d6a4f] px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#1b4332] hover:shadow-xl hover:-translate-y-0.5"
+              >
+                Ver todos los talleres
+                <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
